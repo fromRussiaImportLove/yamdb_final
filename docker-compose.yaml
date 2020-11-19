@@ -9,7 +9,7 @@ services:
       - ./.env
 
   web:
-    image: pycharmer/yamdb
+    image: pycharmer/yamdb:latest
     restart: always
     depends_on:
       - db

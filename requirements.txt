@@ -7,3 +7,5 @@
 -r deploy/requirements.dev.txt
 # vvv -- dummy for test
 gunicorn==20.0.4
+django==3.0.5
+pytest-django==3.9.0
