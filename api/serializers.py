@@ -53,8 +53,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         if (self.context['request'].stream.method == 'POST'
                 and Review.objects.filter(
                     author=self.context['request'].user,
-                    title_id=self.context['view'].kwargs['title_id']
-                    ).exists()):
+                    title_id=self.context['view'].kwargs['title_id']).exists()):
             raise serializers.ValidationError('Такой отзыв уже существует!')
         return attrs
 
