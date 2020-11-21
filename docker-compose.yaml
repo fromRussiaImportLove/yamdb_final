@@ -13,7 +13,7 @@ services:
     restart: always
     depends_on:
       - db
-    ports:
+    expose:
             - "8000:8000"
     volumes:
             - staticfiles:/code/static
@@ -21,7 +21,7 @@ services:
       - ./.env
 
   nginx:
-          build: ./nginx
+          image: nginx:1.19.4
           restart: always
           ports:
                   - "80:80"
@@ -30,7 +30,9 @@ services:
                   - web
           volumes:
                   - staticfiles:/code/static
+                  - config:/etc/nginx/conf.d
 
 volumes:
   postgres_data:
   staticfiles:
+  config:
