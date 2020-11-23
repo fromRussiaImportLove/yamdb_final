@@ -13,8 +13,6 @@ services:
     restart: always
     depends_on:
       - db
-    expose:
-            - "8000:8000"
     volumes:
             - staticfiles:/code/static
     env_file:
@@ -30,9 +28,8 @@ services:
                   - web
           volumes:
                   - staticfiles:/code/static
-                  - config:/etc/nginx/conf.d
+                  - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
 
 volumes:
   postgres_data:
   staticfiles:
-  config:
